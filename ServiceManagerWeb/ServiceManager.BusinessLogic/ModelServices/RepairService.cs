@@ -13,7 +13,7 @@ namespace ServiceManager.BusinessLogic.ModelServices
     {
       using (var db = new SmContext())
       {
-        var repair = await db.Repairs.SingleOrDefaultAsync(r => r.Id == repairId);
+        var repair = await db.Repairs.Include(r => r.RepairStatus).SingleOrDefaultAsync(r => r.Id == repairId);
         var repairView = Mapper.Map<Repairs, RepairView>(repair);
         return repairView;
       }

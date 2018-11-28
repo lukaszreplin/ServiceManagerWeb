@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using ServiceManager.BusinessLogic.DAO;
 using ServiceManager.BusinessLogic.Interfaces;
+using ServiceManager.BusinessLogic.ModelServices;
+using System.Threading.Tasks;
 
 namespace ServiceManagerWeb.Controllers
 {
@@ -9,21 +10,21 @@ namespace ServiceManagerWeb.Controllers
   {
     private readonly IRepairService repairService;
 
-    public RepairController(IRepairService repairService)
+    public RepairController()
     {
-      this.repairService = repairService;
+      this.repairService = new RepairService();
     }
 
 
     [HttpGet("{id}")]
-    public IActionResult GetRepair([FromRoute] int id)
+    public async Task<IActionResult> GetRepair([FromRoute] int id)
     {
       if (!ModelState.IsValid)
       {
         return BadRequest(ModelState);
       }
 
-      var repair = new RepairView();
+      var repair = await repairService.GetRepairAsync(id);
 
       if (repair == null)
       {

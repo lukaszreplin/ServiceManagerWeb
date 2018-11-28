@@ -1,4 +1,5 @@
 using AutoMapper;
+using ServiceManager.BusinessLogic.Mapping.Profiles;
 
 namespace ServiceManager.BusinessLogic.Mapping
 {
@@ -8,7 +9,7 @@ namespace ServiceManager.BusinessLogic.Mapping
     {
       Mapper.Initialize(cfg =>
       {
-
+        cfg.AddProfile<RepairProfile>();
       });
     }
   }

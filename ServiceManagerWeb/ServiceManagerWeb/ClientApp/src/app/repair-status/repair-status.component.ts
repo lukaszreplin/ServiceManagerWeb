@@ -6,18 +6,30 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './repair-status.component.html'
 })
 export class RepairStatusComponent {
-  public forecasts: Repair;
+  public repair: Repair;
+  http: HttpClient;
+  baseUrl: string;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Repair>(baseUrl + 'api/Repair/GetRepairStatus').subscribe(result => {
-      this.forecasts = result;
+    this.http = http;
+    this.baseUrl = baseUrl;
+  }
+
+  public queries = {
+    email: "",
+    repairNumber: ""
+  }
+
+  onSave() {
+    this.http.get<Repair>(this.baseUrl + 'api/Repair/' + this.queries.repairNumber).subscribe(result => {
+      this.repair = result;
+      console.log(this.repair);
     }, error => console.error(error));
   }
 }
 
 interface Repair {
-  dateFormatted: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+  number: string;
+  addedDate: string;
+  status: string;
 }

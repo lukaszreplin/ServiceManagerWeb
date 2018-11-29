@@ -1,3 +1,6 @@
+<div *ngIf="isResult == false" class="alert alert-danger" role="alert">
+  Nie znaleziono naprawy
+</div>
 <div class="row">
   <div class="col-sm-4 col-sm-offset-4">
     <form (submit)="onSave()">
@@ -14,8 +17,22 @@
     
   </div>
 </div>
-<div *ngIf="repair">
-  <h4>{{repair.number}}</h4>
-  <h4>{{repair.addedDate}}</h4>
-<h4>{{repair.status}}</h4>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2" *ngIf="repair && isResult == true">
+    <table class="table table-bordered" style="margin-top: 30px;">
+      <tr>
+        <th colspan="2">Wyniki wyszukiwania</th>
+      </tr>
+      <tr>
+        <td>Numer naprawy</td><td>{{repair.number}}</td>
+      </tr>
+      <tr>
+        <td>Data zarejestrowania</td><td>{{repair.addedDate}}</td>
+      </tr>
+      <tr>
+        <td>Aktualny status naprawy</td><td>{{repair.status}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
+

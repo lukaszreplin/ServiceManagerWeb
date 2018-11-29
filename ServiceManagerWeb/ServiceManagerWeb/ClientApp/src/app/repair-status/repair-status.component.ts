@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RepairStatusComponent {
   public repair: Repair;
+  public isResult : boolean;
   http: HttpClient;
   baseUrl: string;
 
@@ -21,9 +22,12 @@ export class RepairStatusComponent {
   }
 
   onSave() {
-    this.http.get<Repair>(this.baseUrl + 'api/Repair/' + this.queries.repairNumber).subscribe(result => {
+    this.http.get<Repair>(this.baseUrl + 'api/Repair/' + this.queries.repairNumber + '/' + this.queries.email).subscribe(result => {
       this.repair = result;
-    }, error => console.error(error));
+      this.isResult = true;
+    }, error => {
+      this.isResult = false;
+    });
   }
 }
 

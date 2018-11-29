@@ -16,15 +16,15 @@ namespace ServiceManagerWeb.Controllers
     }
 
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetRepair([FromRoute] int id)
+    [HttpGet("{id}/{email}")]
+    public async Task<IActionResult> GetRepair([FromRoute] int id, string email)
     {
       if (!ModelState.IsValid)
       {
         return BadRequest(ModelState);
       }
 
-      var repair = await repairService.GetRepairAsync(id);
+      var repair = await repairService.GetRepairAsync(id, email);
 
       if (repair == null)
       {

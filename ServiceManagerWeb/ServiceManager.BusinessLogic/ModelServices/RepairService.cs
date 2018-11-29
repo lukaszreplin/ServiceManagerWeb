@@ -9,11 +9,13 @@ namespace ServiceManager.BusinessLogic.ModelServices
 {
   public class RepairService : IRepairService
   {
-    public async Task<RepairView> GetRepairAsync(int repairId)
+    public async Task<RepairView> GetRepairAsync(int repairId, string email)
     {
       using (var db = new SmContext())
       {
-        var repair = await db.Repairs.Include(r => r.RepairStatus).SingleOrDefaultAsync(r => r.Id == repairId);
+        var repair = await db.Repairs.Include(r => r.RepairStatus)
+          .Include(r => r.Client)
+          .SingleOrDefaultAsync(r => r.Id == repairId && r.Client.Email == email);
         var repairView = Mapper.Map<Repairs, RepairView>(repair);
         return repairView;
       }

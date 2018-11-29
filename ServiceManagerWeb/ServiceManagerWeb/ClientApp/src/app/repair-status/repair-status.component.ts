@@ -23,7 +23,6 @@ export class RepairStatusComponent {
   onSave() {
     this.http.get<Repair>(this.baseUrl + 'api/Repair/' + this.queries.repairNumber).subscribe(result => {
       this.repair = result;
-      console.log(this.repair);
     }, error => console.error(error));
   }
 }

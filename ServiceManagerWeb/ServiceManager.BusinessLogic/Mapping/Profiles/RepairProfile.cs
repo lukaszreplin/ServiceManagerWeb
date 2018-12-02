@@ -1,6 +1,7 @@
 using AutoMapper;
 using ServiceManager.BusinessLogic.DAO;
 using ServiceManager.DataAccess.Model;
+using System.Globalization;
 
 namespace ServiceManager.BusinessLogic.Mapping.Profiles
 {
@@ -10,8 +11,12 @@ namespace ServiceManager.BusinessLogic.Mapping.Profiles
     {
       CreateMap<Repairs, RepairView>()
         .ForMember(d => d.Number, o => o.MapFrom(s => s.RepairNumber))
-        .ForMember(d => d.AddedDate, o => o.MapFrom(s => s.CreatedDate.ToShortDateString()))
-        .ForMember(d => d.Status, o => o.MapFrom(s => s.RepairStatus.Name));
+        .ForMember(d => d.AddedDate, o => o.MapFrom(s => s.CreatedDate.ToString("g",
+          DateTimeFormatInfo.InvariantInfo)))
+        .ForMember(d => d.ExcpectedComplentionDate, o => o.MapFrom(s => s.ExpectedComplentionDate.ToString("d", DateTimeFormatInfo.InvariantInfo)))
+        .ForMember(d => d.DeviceStatus, o => o.MapFrom(s => s.Device.DeviceStatus.Name))
+        .ForMember(d => d.Status, o => o.MapFrom(s => s.RepairStatus.Name))
+        .ForMember(d => d.RepairActions, o => o.Ignore());
     }
   }
 }

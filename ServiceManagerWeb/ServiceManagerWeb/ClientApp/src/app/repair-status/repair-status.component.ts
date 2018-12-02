@@ -35,4 +35,11 @@ interface Repair {
   number: string;
   addedDate: string;
   status: string;
+  repairActions: Array<RepairAction>;
+}
+
+interface RepairAction {
+  actionDate: string;
+  publicComment: string;
+  actionName: string;
 }

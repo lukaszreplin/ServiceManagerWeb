@@ -5,6 +5,6 @@ namespace ServiceManager.BusinessLogic.Interfaces
 {
   public interface IRepairService
   {
-    Task<RepairView> GetRepairAsync(int repairId, string email);
+    Task<RepairView> GetRepairAsync(string repairId, string email);
   }
 }

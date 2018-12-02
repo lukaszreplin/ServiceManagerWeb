@@ -35,4 +35,13 @@
     </table>
   </div>
 </div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2" *ngIf="repair && isResult == true">
+    <ul>
+      <li *ngFor="let action of repair.repairActions">
+        {{ action.publicComment }}
+      </li>
+    </ul>
+  </div>
+</div>
 

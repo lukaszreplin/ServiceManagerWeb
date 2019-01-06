@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RepairStatusComponent } from './repair-status/repair-status.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { RepairStatusComponent } from './repair-status/repair-status.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent,
     RepairStatusComponent
   ],
   imports: [
@@ -27,7 +25,6 @@ import { RepairStatusComponent } from './repair-status/repair-status.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'repair-status', component: RepairStatusComponent}
     ])
   ],

@@ -8,7 +8,7 @@ namespace ServiceManager.BusinessLogic.DAO
     public string AddedDate { get; set; }
     public string Status { get; set; }
     public string DeviceStatus { get; set; }
-    public string ExcpectedComplentionDate { get; set; }
+    public string ExpectedComplentionDate { get; set; }
 
     public List<RepairActionView> RepairActions { get; set; }
   }

@@ -24,24 +24,55 @@
         <th colspan="2">Wyniki wyszukiwania</th>
       </tr>
       <tr>
-        <td>Numer naprawy</td><td>{{repair.number}}</td>
+        <th colspan="2"><b>Dane naprawy</b></th>
       </tr>
       <tr>
-        <td>Data zarejestrowania</td><td>{{repair.addedDate}}</td>
+        <td>Numer naprawy</td>
+        <td>{{repair.number}}</td>
       </tr>
       <tr>
-        <td>Aktualny status naprawy</td><td>{{repair.status}}</td>
+        <td>Data zarejestrowania</td>
+        <td>{{repair.addedDate}}</td>
+      </tr>
+      <tr>
+        <td>Aktualny status naprawy</td>
+        <td>{{repair.status}}</td>
+      </tr>
+      <tr>
+        <td>Planowana data ukończenia</td>
+        <td>{{repair.expectedComplentionDate}}</td>
+      </tr>
+      <tr>
+        <td>Aktualny status urządzenia</td>
+        <td>{{repair.deviceStatus}}</td>
       </tr>
     </table>
   </div>
 </div>
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2" *ngIf="repair && isResult == true">
-    <ul>
-      <li *ngFor="let action of repair.repairActions">
-        {{ action.publicComment }}
-      </li>
-    </ul>
+    <div *ngIf="repair.repairActions.length == 0" class="alert alert-info" role="alert">
+      Naprawa nie zawiera żadnych akcji
+    </div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Data akcji</th>
+        <th>Rodzaj akcji</th>
+        <th>Komentarz</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let action of repair.repairActions">
+          <td>{{ action.actionDate }}</td>
+          <td>{{ action.repairActionDefinition }}</td>
+          <td>{{ action.publicComment }}</td>
+        </tr>
+      </tbody>
+    </table>
+      <ul>
+        
+      </ul>
   </div>
 </div>
 

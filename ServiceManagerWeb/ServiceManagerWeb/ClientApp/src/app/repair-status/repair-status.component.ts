@@ -24,6 +24,7 @@ export class RepairStatusComponent {
   onSave() {
     this.http.get<Repair>(this.baseUrl + 'api/Repair/' + this.queries.repairNumber + '/' + this.queries.email).subscribe(result => {
       this.repair = result;
+      console.error(result);
       this.isResult = true;
     }, error => {
       this.isResult = false;
@@ -36,10 +37,12 @@ interface Repair {
   addedDate: string;
   status: string;
   repairActions: Array<RepairAction>;
+  excpectedComplentionDate: string;
+  deviceStatus: string;
 }
 
 interface RepairAction {
   actionDate: string;
   publicComment: string;
-  actionName: string;
+  repairActionDefinition: string;
 }

@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ServiceManager.BusinessLogic\ServiceManager.BusinessLogic.csproj" />
+    <ProjectReference Include="..\ServiceManager.BusinessLogic\ServiceManagerWeb.BusinessLogic.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

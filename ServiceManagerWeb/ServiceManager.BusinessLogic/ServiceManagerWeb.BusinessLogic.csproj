@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess\ServiceManager.DataAccess.csproj" />
+    <ProjectReference Include="..\DataAccess\ServiceManagerWeb.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

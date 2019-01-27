@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceManagerWeb", "ServiceManagerWeb\ServiceManagerWeb.csproj", "{028F87D0-2ECF-496E-B997-85F6D54AC021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceManagerWeb", "ServiceManagerWeb\ServiceManagerWeb.csproj", "{028F87D0-2ECF-496E-B997-85F6D54AC021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceManager.DataAccess", "DataAccess\ServiceManager.DataAccess.csproj", "{FFA12031-D6C9-4F8F-AC8F-3C19F0F1212A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceManagerWeb.DataAccess", "DataAccess\ServiceManagerWeb.DataAccess.csproj", "{FFA12031-D6C9-4F8F-AC8F-3C19F0F1212A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceManager.BusinessLogic", "ServiceManager.BusinessLogic\ServiceManager.BusinessLogic.csproj", "{E1B1576B-33D2-4F92-BAA5-29C07B6B6AF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceManagerWeb.BusinessLogic", "ServiceManager.BusinessLogic\ServiceManagerWeb.BusinessLogic.csproj", "{E1B1576B-33D2-4F92-BAA5-29C07B6B6AF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
